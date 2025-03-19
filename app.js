@@ -9,12 +9,26 @@ function agregarAmigo() {
     document.getElementById("amigo").value = "";
     document.getElementById("amigo").focus();
     console.log(listaDeNombres);
+    if (nombre) {
+      var list = document.getElementsByClassName("name-list")[0];
+      var newItem = document.createElement("li");
+      newItem.textContent = nombre;
+      list.appendChild(newItem);
+    }
   } else {
-    alert("Ingrese un nombre");
+    alert("Por favor, ingrese un nombre valido");
   }
 }
 
 function sortearAmigo(){
-
+  let amigoElegido = listaDeNombres[Math.floor(Math.random() * listaDeNombres.length)];
+  if (amigoElegido) {
+    var list = document.getElementsByClassName("name-list")[0];
+    list.innerHTML = "";
+    var list = document.getElementsByClassName("result-list")[0];
+    var newItem = document.createElement("li");
+    newItem.textContent = amigoElegido;
+    list.appendChild(newItem);
+  }
 }
 
